@@ -1,5 +1,6 @@
 package com.backend.patrimoine.service;
-import com.fresh.coding.patrimoineapi.model.Patrimoine;
+
+import com.backend.patrimoine.model.Patrimoine;
 
 public interface PatrimoineService {
     Patrimoine create(Patrimoine patrimoine);

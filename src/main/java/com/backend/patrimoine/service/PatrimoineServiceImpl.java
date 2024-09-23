@@ -1,7 +1,7 @@
 package com.backend.patrimoine.service;
 
+import com.backend.patrimoine.model.Patrimoine;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fresh.coding.patrimoineapi.model.Patrimoine;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class PatrimoineServiceImpl implements com.backend.patrimoine.service.Pat
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public PatrimoineServiceImpl(ObjectMapper objectMapper) {
+    public PatrimoineServiceImpl(String s, ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
         loadPatrimoines();
     }

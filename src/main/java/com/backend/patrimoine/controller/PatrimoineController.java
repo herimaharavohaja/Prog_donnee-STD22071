@@ -1,6 +1,6 @@
 package com.backend.patrimoine.controller;
+import com.backend.patrimoine.model.Patrimoine;
 import com.backend.patrimoine.service.PatrimoineService;
-import com.fresh.coding.patrimoineapi.model.Patrimoine;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,17 +21,17 @@ public class PatrimoineController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPatrimoine);
     }
 
-    @PutMapping("/{name}")
+    @PutMapping("/{id}")
     public ResponseEntity<Patrimoine> updatePatrimoine(
-            @PathVariable String name,
+            @PathVariable(name = "id") String name,
             @RequestBody Patrimoine patrimoine
     ) {
         Patrimoine updatedPatrimoine = patrimoineService.update(name, patrimoine);
         return ResponseEntity.ok(updatedPatrimoine);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Patrimoine> findPatrimoineByName(@PathVariable String name) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Patrimoine> findPatrimoineByName(@PathVariable(name = "id") String name) {
         Patrimoine patrimoine = patrimoineService.findByName(name);
         if (patrimoine != null) {
             return ResponseEntity.ok(patrimoine);
